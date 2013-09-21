@@ -34,7 +34,12 @@ Ubuntu vim
 ### 安装vim
     sudo apt-get install vim vim-scripts vim-gnome vim-gtk
     sudo apt-get install exuberant-ctags cscope
+    
+Colore Setting
+---------------------------------------
+[Colore setting](http://ethanschoonover.com/solarized)
  
 Putty setting:
 ----------------------------------------
 [Solarized color setting for putty](https://github.com/brantb?tab=repositories)
+
