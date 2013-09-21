@@ -15,6 +15,11 @@ Git Hub usage
     get from github:
     git clone https://github.com/lastagile/vim.git
     git pull
+    echo "update submodules"
+    git submodule init
+    git submodule update
+    git submodule foreach git pull origin master
+
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)
 
 Vim setting:
