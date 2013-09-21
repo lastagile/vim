@@ -10,7 +10,9 @@ Git Hub usage
     git push
 
     get from github:
+    git remote add origin github.com/lastagile/vim.git
     git pull
+[Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)
 
 Vim setting:
 ----------------------------------
