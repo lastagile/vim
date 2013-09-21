@@ -1,6 +1,8 @@
 my vim configuration
 ===================================
 
+
+
 Git Hub usage
 ----------------------------------
     update to github:
@@ -36,3 +38,4 @@ Ubuntu vim
 Putty setting:
 ----------------------------------------
 [Get putty Setting](http://blog.csdn.net/pan_tian/article/details/8111390)
+[solarized color setting for putty and vim](https://github.com/brantb?tab=repositories)
