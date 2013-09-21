@@ -6,11 +6,12 @@ Git Hub usage
     update to github:
     git add <files>
     git rm <files>
+    git remote add origin github.com/lastagile/vim.git
     git commit -a -m "xxxxxx"
     git push
 
     get from github:
-    git remote add origin github.com/lastagile/vim.git
+    git clone https://github.com/lastagile/vim.git
     git pull
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)
 
