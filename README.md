@@ -19,7 +19,7 @@ Git Hub usage
     git submodule init
     git submodule update
     git submodule foreach git pull origin master
-
+[Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)
 
 Vim setting:
