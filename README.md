@@ -45,6 +45,7 @@ Colore Setting
 ---------------------------------------
 [Colore setting](http://ethanschoonover.com/solarized)<br/>
 [In ubuntu](http://www.lupaworld.com/article-210612-1.html)
+
     git clone https://github.com/coolwanglu/gnome-terminal-colors-solarized.git
     cd gnome-terminal-colors-solarized/
     ./set_dark.sh
