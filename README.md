@@ -21,6 +21,7 @@ Git Hub usage
     git submodule foreach git pull origin master
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)
+[Git SSH KEY](http://teliute.org/mix/Tegit/lesson2/lesson2.html)
 
 Vim setting:
 ----------------------------------
