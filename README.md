@@ -44,6 +44,7 @@ Ubuntu vim
 Colore Setting
 ---------------------------------------
 [Colore setting](http://ethanschoonover.com/solarized)
+[In ubuntu](http://www.lupaworld.com/article-210612-1.html)
  
 Putty setting:
 ----------------------------------------
