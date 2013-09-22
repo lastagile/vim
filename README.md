@@ -20,7 +20,7 @@ Git Hub usage
     git submodule update
     git submodule foreach git pull origin master
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
-[Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)
+[Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)<br/>
 [Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)
 
 Vim setting:
@@ -43,8 +43,13 @@ Ubuntu vim
     
 Colore Setting
 ---------------------------------------
-[Colore setting](http://ethanschoonover.com/solarized)
+[Colore setting](http://ethanschoonover.com/solarized)<br/>
 [In ubuntu](http://www.lupaworld.com/article-210612-1.html)
+    git clone https://github.com/coolwanglu/gnome-terminal-colors-solarized.git
+    cd gnome-terminal-colors-solarized/
+    ./set_dark.sh
+    ./set_light.sh
+    ./install.sh
  
 Putty setting:
 ----------------------------------------
