@@ -40,17 +40,7 @@ Ubuntu vim
 ### 安装vim
     sudo apt-get install vim vim-scripts vim-gnome vim-gtk
     sudo apt-get install exuberant-ctags cscope
-
-Clang complete install
-------------------------------------
-
-    sudo apt-get install clang
-    git clone https://github.com/Rip-Rip/clang_complete
-    cd clang_complete/
-    make install
     
-[Clang complete]https://github.com/Rip-Rip/clang_complete< br/>
-
 Colore Setting
 ---------------------------------------
 [Colore setting](http://ethanschoonover.com/solarized)<br/>
