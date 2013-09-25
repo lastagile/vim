@@ -5,6 +5,7 @@ my vim configuration
 
 Git Hub usage
 ----------------------------------
+
     update to github:
     git add <files>
     git rm <files>
@@ -19,15 +20,18 @@ Git Hub usage
     git submodule init
     git submodule update
     git submodule foreach git pull origin master
+    
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)<br/>
 [Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
-[Git submodule](http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating)
+[Git submodule](http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating)<br/>
+
+    git submodule add git@github.com:oblitum/bufkill bundle/bufkill
 
 Vim setting:
 ----------------------------------
 [To Evernote](http://www.evernote.com/shard/s73/sh/b4ee9bb5-34d5-41f2-aad1-cce4a463a01a/649b0610a8598938eac60b1607b2d456)<br />
-[To ZiLong](http://zilongshanren.com/blog/2013/01/15/vim-the-killer/)
+[To ZiLong](http://zilongshanren.com/blog/2013/01/15/vim-the-killer/)<br/>
 
 Other settings
 ===================================
@@ -45,7 +49,7 @@ Ubuntu vim
 Colore Setting
 ---------------------------------------
 [Colore setting](http://ethanschoonover.com/solarized)<br/>
-[In ubuntu](http://www.lupaworld.com/article-210612-1.html)
+[In ubuntu](http://www.lupaworld.com/article-210612-1.html)<br/>
 
     git clone https://github.com/coolwanglu/gnome-terminal-colors-solarized.git
     cd gnome-terminal-colors-solarized/
@@ -55,5 +59,5 @@ Colore Setting
  
 Putty setting:
 ----------------------------------------
-[Solarized color setting for putty](https://github.com/brantb?tab=repositories)
+[Solarized color setting for putty](https://github.com/brantb?tab=repositories)<br/>
 
