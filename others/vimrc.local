@@ -196,7 +196,8 @@ let g:mapleader = ","
 "Fast saving
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
-
+nmap <leader>p :set paste<cr>
+nmap <leader>i :set nopaste<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
