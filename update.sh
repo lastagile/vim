@@ -3,7 +3,7 @@
 
 echo "update submodules"
 
-git update
+git pull
 
 echo "update submodules"
 git submodule init
