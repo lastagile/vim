@@ -198,7 +198,7 @@ nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
 nmap <leader>p :set paste<cr>
 nmap <leader>i :set nopaste<cr>
-
+nmap <leader>q :q<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
