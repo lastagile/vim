@@ -30,9 +30,42 @@ Git Hub usage
 
 Vim setting:
 ----------------------------------
+
 [To Evernote](http://www.evernote.com/shard/s73/sh/b4ee9bb5-34d5-41f2-aad1-cce4a463a01a/649b0610a8598938eac60b1607b2d456)<br />
 [To ZiLong](http://zilongshanren.com/blog/2013/01/15/vim-the-killer/)<br/>
 [k-vim](https://github.com/wklken/k-vim)<br/>
+
+自定义快捷键：
+-----------------------------------
+    F1  关掉，防止跳出帮助
+    F2  set nu/nonu
+    F5  set paste/nopaste
+    F8  tagbar
+    空格 /折叠
+    Y   =y$   复制到行尾
+    H =0
+    L =$
+    w!!  以sudo的权限保存
+    kj   <Esc>，编辑时不用到角落去按esc了
+    t    新起一行，下面，不进入插入模式
+    T    新起一行，上面
+    hjkl  上下左右
+    ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
+    gc<action>  注释代码
+    gcc 注释本行代码
+    5j/5k  在相对行号模式下，往上移动5行 往下移动5行
+    ,w :w!
+    ,f :find
+    ,q :q
+    ,r :reg
+    ,n nerdtree
+    ,/ 去除匹配高亮
+    空格 折叠代码
+    <c-n> normal模式设置是否相对行数，插入模式complete
+    左右箭头 bp bn
+    
+
+    
 
 Other settings
 ===================================
