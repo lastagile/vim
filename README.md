@@ -20,7 +20,7 @@ Git Hub usage
     git submodule init
     git submodule update
     git submodule foreach git pull origin master
-    
+    git submodule add XXXX /bundle/xxxx    
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)<br/>
 [Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
@@ -59,5 +59,7 @@ Colore Setting
  
 Putty setting:
 ----------------------------------------
+vim小键盘不能输入
+Terminal->Features里，找到Disable application keypad mode
 [Solarized color setting for putty](https://github.com/brantb?tab=repositories)<br/>
 

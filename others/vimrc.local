@@ -6,11 +6,39 @@ set ttyfast
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 
+" 启动的时候不显示那个援助索马里儿童的提示
+set shortmess=atI       
+
 " history文件中需要记录的行数
-set history=100
+set history=1000
 
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
+
+"==========================================
+" file encode, 文件编码,格式
+"==========================================
+" 设置新文件的编码为 UTF-8
+"set fileencodings=ucs-bom,utf-8,gb2312,big5,latin1
+
+set encoding=utf-8
+" 自动判断编码时，依次尝试以下编码：
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set helplang=cn
+"language message zh_CN.UTF-8
+"set langmenu=zh_CN.UTF-8
+"set enc=2byte-gb18030
+" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
+set termencoding=utf-8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" 如遇Unicode值大于255的文本，不必等到空格再折行。
+set formatoptions+=m
+" 合并两行中文时，不在中间加空格：
+set formatoptions+=B
+
 
 " 与windows共享剪贴板
 "set clipboard+=unnamed
@@ -23,6 +51,9 @@ filetype plugin on
 
 " 为特定文件类型载入相关缩进文件
 filetype indent on
+
+"启动自动补全
+filetype plugin indent on
 
 " 保存全局变量
 set viminfo+=!
@@ -46,7 +77,6 @@ highlight StatusLineNC guifg=Gray guibg=White
 set number        "" show line number
 set ruler         "" always show current position
 set cursorline    "" highlight the current line
-set showcmd
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件设置
@@ -64,7 +94,6 @@ set linespace=0
 " 增强模式中的命令行自动完成操作
 set wildmenu
 
-
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set cmdheight=1
 
@@ -78,9 +107,6 @@ set whichwrap+=<,>,h,l
 set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
-
-" 启动的时候不显示那个援助索马里儿童的提示
-set shortmess=atI
 
 "打开时回到上一次位置
 if has("autocmd")
@@ -101,10 +127,10 @@ set noerrorbells
 " 搜索和匹配
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 高亮显示匹配的括号
-"set showmatch
+set showmatch
 
 " 匹配括号高亮的时间（单位是十分之一秒）
-"set matchtime=5
+set matchtime=5
 
 " 在搜索的时候忽略大小写
 set ignorecase
@@ -113,7 +139,7 @@ set ignorecase
 hi Pmenu ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff 
 
 " 高亮被搜索的句子（phrases）
-"set hlsearch
+set hlsearch
 
 " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
 set incsearch
@@ -129,6 +155,8 @@ set novisualbell
 
 " 我的状态行显示的内容（包括文件类型和解码）
 set showcmd
+" Show current mode
+set showmode
 " 总是显示状态行
 set laststatus=2
 
@@ -160,9 +188,8 @@ set expandtab
 " 换行
 set wrap
 
-" 在行和段开始处使用制表符
+" 按退格键时可以一次删掉 4 个空格
 set smarttab
-
 
 " 用空格键来开关折叠
 set foldenable
@@ -170,35 +197,97 @@ set foldmethod=syntax
 set foldlevel=100
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
+"行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
+set relativenumber
+au FocusLost * :set number
+au FocusGained * :set relativenumber
+" 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+
 " """"""""""""""""""""""""""auto complete () "" """"""""""""""""""""""""""""""""""""""""
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap < <><ESC>i
-:inoremap > <c-r>=ClosePair('>')<CR>
+":inoremap ( ()<ESC>i
+":inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap { {}<ESC>i
+":inoremap } <c-r>=ClosePair('}')<CR>
+":inoremap [ []<ESC>i
+":inoremap ] <c-r>=ClosePair(']')<CR>
+":inoremap < <><ESC>i
+":inoremap > <c-r>=ClosePair('>')<CR>
+"
+"function ClosePair(char)
+"    if getline('.')[col('.') - 1] == a:char
+"        return "\<Right>"
+"    else
+"        return a:char
+"    endif
+"endf
 
-function ClosePair(char)
-if getline('.')[col('.') - 1] == a:char
-return "\<Right>"
-else
-return a:char
-endif
-endf
 let g:neocomplcache_enable_at_startup=1  
+" 自动补全配置
+"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+"set completeopt+=longest
+set completeopt=longest,menu
 
+" configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
-"Set mapleader
+""""""""""""""""""""""""""""""""""""""""""""""Set mapleader """"""""""""""""""""""
 let mapleader = ","
 let g:mapleader = ","
 "Fast saving
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
-nmap <leader>p :set paste<cr>
-nmap <leader>i :set nopaste<cr>
 nmap <leader>q :q<cr>
+nmap <leader>r :reg<cr>
+
+"Treat long lines as break lines (useful when moving around in them)
+"se swap之后，同物理行上线直接跳
+map j gj
+map k gk
+
+"Smart way to move between windows 分屏窗口移动
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Go to home and end using capitalized directions
+noremap H 0
+noremap L $
+
+" when in insert mode, press <F2> to go to
+set pastetoggle=<F5>            
+
+" disbale paste mode when leaving insert mode
+au InsertLeave * set nopaste
+
+"复制到行尾"
+map Y y$
+
+" w!! to sudo & write a file
+cmap w!! w !sudo tee >/dev/null %
+
+inoremap kj <Esc>
+
+"Use arrow key to change buffer"
+noremap <left> :bp<CR>
+noremap <right> :bn<CR>
+
+" T & t to open new line"
+nmap t o<ESC>k
+nmap T O<ESC>j
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -208,6 +297,9 @@ nmap <leader>q :q<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 execute pathogen#infect()
 
+" delimitmate
+    let delimitMate_expand_cr = 1
+"
 
 " Ctags {
 :set tags=./tags,./../tags,./*/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags;
@@ -228,6 +320,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd vimenter * NERDTree
 "}
 
+"###########显示增强#######################################################"
 "vim-colores-solarized{
 syntax enable
 if has('gui_running')
@@ -242,7 +335,6 @@ colorscheme solarized
 execute pathogen#infect()
 "}
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,8 +342,7 @@ execute pathogen#infect()
  set guifont=PowerlineSymbols\ for\ Powerline
  set nocompatible
  set t_Co=256
- set encoding=utf-8  "if not set, the powerline plugins won't work 
- "let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'unicode'
  "}
 
 if has("cscope")
