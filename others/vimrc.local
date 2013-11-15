@@ -202,17 +202,16 @@ set relativenumber
 au FocusLost * :set number
 au FocusGained * :set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set number
+autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
   if(&relativenumber == 1)
-    set number
+    set norelativenumber
   else
     set relativenumber
   endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
-
 
 " """"""""""""""""""""""""""auto complete () "" """"""""""""""""""""""""""""""""""""""""
 ":inoremap ( ()<ESC>i
@@ -250,6 +249,8 @@ nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
 nmap <leader>q :q<cr>
 nmap <leader>r :reg<cr>
+"去除搜索高亮"
+noremap <silent><leader>/ :nohls<CR>
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳
