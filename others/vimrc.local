@@ -319,6 +319,7 @@ map <leader>n :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 "open a NERDTree automatically when vim starts up
 "autocmd vimenter * NERDTree
+let NERDTreeIgnore=[ '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 "}
 
 "###########显示增强#######################################################"
