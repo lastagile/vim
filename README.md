@@ -59,7 +59,7 @@ Colore Setting
  
 Putty setting:
 ----------------------------------------
-vim小键盘不能输入
-Terminal->Features里，找到Disable application keypad mode
+vim小键盘不能输入<br>
+Terminal->Features里，找到Disable application keypad mode<br>
 [Solarized color setting for putty](https://github.com/brantb?tab=repositories)<br/>
 
