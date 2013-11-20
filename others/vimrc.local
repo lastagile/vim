@@ -302,11 +302,6 @@ execute pathogen#infect()
     let delimitMate_expand_cr = 1
 "
 
-" Ctags {
-:set tags=./cscope/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags;  
-"}
-
-
 " Tagbar {
 nmap <F8> :TagbarToggle<CR>
 highlight TagbarHighligh guifg=Green ctermfg=Green
@@ -359,6 +354,11 @@ let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultisnips/UltiSnips"]
 " let g:Powerline_symbols = 'unicode'
  "}
 
+" Ctags {
+set tags=$PWD/cscope/tags,/usr/include/tags;  
+"}
+
+"set noautochdir
 if has("cscope")
         " add any database in current directory
         set nocsverb

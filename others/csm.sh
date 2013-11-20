@@ -1,14 +1,14 @@
 #!/bin/sh
 usage()
 {
-    echo "usage : csm.sh src_path [-k]"
-    echo "I will create cscope db in $PWD/cscope"
+    echo "usage : csm.sh src_path [-k]"
+    echo "I will create cscope db in $PWD/cscope"
 }
 
 if [ $# -lt 1 ]
 then
-    usage
-    exit
+    usage
+    exit
 fi
 
 cd $1
@@ -23,10 +23,10 @@ find $SRC_PATH -name "*.h" -o -name "*.c" -o -name "Makefile" -o -name "makefile
 if [ $# -eq 2 ]
 then
     # Add kernel source too
-    find . ~/kcscope/ -name "cscope.file*" | xargs cat | cscope -bkq -i -
-    find . ~/kcscope/ -name "cscope.file*" | xargs cat | ctags -L -
+    find . ~/kcscope/ -name "cscope.file*" | xargs cat | cscope -bkq -i -
+    find . ~/kcscope/ -name "cscope.file*" | xargs cat | ctags -L -
 else
-    find . -name "cscope.file*" | xargs cat | cscope -bkq -i -
-    find . -name "cscope.file*" | xargs cat | ctags -L -
+    find . -name "cscope.file*" | xargs cat | cscope -bkq -i -
+    find . -name "cscope.file*" | xargs cat | ctags -L -
 fi
 
