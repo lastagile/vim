@@ -7,7 +7,7 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias cdh="cd ~"
 alias d='dirs -v'
-export CDPATH=~:/etc
+#export CDPATH=~:/etc
 alias diff='colordiff'
 alias rm='rm -i'
 alias df='df -h'
@@ -27,3 +27,5 @@ alias cdk='cd /lib/modules/`uname -r`/build'
 if [ -d ~/bin ];then
     export PATH=$PATH:~/bin
 fi
+
+export UNAMER=`uname -r`

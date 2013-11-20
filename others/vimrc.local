@@ -355,16 +355,17 @@ let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultisnips/UltiSnips"]
  "}
 
 " Ctags {
-set tags=$PWD/cscope/tags,/usr/include/tags;  
+set tags=$PWD/cscope/tags,/usr/include/tags; 
 "}
 
 "set noautochdir
 if has("cscope")
         " add any database in current directory
+        
         set nocsverb
         if filereadable("./cscope/cscope.out")
-                cs add ./cscope/cscope.out
-		elseif filereadable("cscope.out")
+            cs add ./cscope/cscope.out
+        elseif filereadable("cscope.out")
                 cs add cscope.out
         endif
         set csverb
