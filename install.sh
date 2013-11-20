@@ -9,10 +9,12 @@ echo "create .vimrc"
 if [ -f ~/.vimrc ]; then
 rm ~/.vimrc
 fi
+
 ln -s ~/.vim/others/vimrc.local ~/.vimrc
 if [ -f ~/.grvimrc ]; then
 rm ~/.gvimrc
 fi
+
 ln -s ~/.vim/others/vimrc.local ~/.gvimrc
 
 if [ -f ~/.screenrc ]; then
@@ -28,8 +30,11 @@ ln -s ~/.vim/others/bash_aliases ~/.bash_aliases
 echo ". ~/.bash_aliases" >> ~/.bashrc
 
 mkdir ~/bin
-rm ~/bin/mkc.sh
-ln -s ~/.vim/others/mkc.sh ~/bin/mkc.sh
+rm ~/bin/csm.sh
+ln -s ~/.vim/others/csm.sh ~/bin/csm.sh
+
+rm ~/bin/csk.sh
+ln -s ~/.vim/others/csk.sh ~/bin/csk.sh
 
 echo "update submodules"
 git submodule init

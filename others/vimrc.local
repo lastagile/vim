@@ -303,13 +303,17 @@ execute pathogen#infect()
 "
 
 " Ctags {
-:set tags=./tags,./../tags,./*/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags;
+:set tags=./cscope/tags,~/programme/unixnetwork/lib/tags,/usr/include/tags;  
 "}
 
 
 " Tagbar {
 nmap <F8> :TagbarToggle<CR>
 highlight TagbarHighligh guifg=Green ctermfg=Green
+let g:tagbar_left = 1
+let g:tagbar_width = 30
+let g:tagbar_updateonsave_maxlines = 1
+let g:tagbar_compact = 1 "去除帮助提示"
 "}
 
 
@@ -320,6 +324,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 "open a NERDTree automatically when vim starts up
 "autocmd vimenter * NERDTree
 let NERDTreeIgnore=[ '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+let g:NERDTreeWinPos = "right"
 "}
 
 "###########显示增强#######################################################"
@@ -361,12 +366,6 @@ if has("cscope")
                 cs add ./cscope/cscope.out
 		elseif filereadable("cscope.out")
                 cs add cscope.out
-        elseif filereadable("../cscope.out")
-                cs add ../cscope.out
-        elseif filereadable("../../cscope.out")
-                cs add ../../cscope.out
-        elseif filereadable("../../../cscope.out")
-                cs add ../../../cscope.out
         endif
         set csverb
         set csto=0
