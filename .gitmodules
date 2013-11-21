@@ -25,3 +25,9 @@
 [submodule "bundle/bufkill"]
 	path = bundle/bufkill
 	url = git@github.com:oblitum/bufkill
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe
+[submodule "bundle/vim-expand-region"]
+	path = bundle/vim-expand-region
+	url = git@github.com:terryma/vim-expand-region

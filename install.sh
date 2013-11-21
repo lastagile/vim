@@ -30,8 +30,8 @@ ln -s ~/.vim/others/bash_aliases ~/.bash_aliases
 echo ". ~/.bash_aliases" >> ~/.bashrc
 
 mkdir ~/bin
-rm ~/bin/csm.sh
-ln -s ~/.vim/others/csm.sh ~/bin/csm.sh
+rm ~/bin/csg.sh
+ln -s ~/.vim/others/csg.sh ~/bin/csg.sh
 
 rm ~/bin/csk.sh
 ln -s ~/.vim/others/csk.sh ~/bin/csk.sh
