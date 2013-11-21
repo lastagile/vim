@@ -26,7 +26,13 @@ Git Hub usage
 [Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
 [Git submodule](http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating)<br/>
 
+Add git sub module
+-------------------
     git submodule add git@github.com:oblitum/bufkill bundle/bufkill
+Remove sub module
+--------------------
+edite :.gitmodules and .git/config
+git rm --cached bundle/bufkill
 
 Vim setting:
 ----------------------------------
