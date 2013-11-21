@@ -20,7 +20,7 @@ Git Hub usage
     git submodule init
     git submodule update
     git submodule foreach git pull origin master
-    git submodule add XXXX /bundle/xxxx    
+    git submodule update --init --recursive
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)<br/>
 [Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
@@ -31,8 +31,8 @@ Add git sub module
     git submodule add git@github.com:oblitum/bufkill bundle/bufkill
 Remove sub module
 --------------------
-edite :.gitmodules and .git/config
-git rm --cached bundle/bufkill
+    edite :.gitmodules and .git/config
+    git rm --cached bundle/bufkill
 
 Vim setting:
 ----------------------------------
