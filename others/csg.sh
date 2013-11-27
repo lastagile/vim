@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 usage()
 {
     echo "usage : csg.sh src_path <-r>"
