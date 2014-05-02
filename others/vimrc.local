@@ -202,7 +202,7 @@ set relativenumber
 au FocusLost * :set number
 au FocusGained * :set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set norelativenumber
+autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
   if(&relativenumber == 1)
