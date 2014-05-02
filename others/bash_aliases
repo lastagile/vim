@@ -29,3 +29,7 @@ if [ -d ~/bin ];then
 fi
 
 export UNAMER=`uname -r`
+
+export CLICOLOR=1 
+
+set -o vi
