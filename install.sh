@@ -33,8 +33,8 @@ mkdir ~/bin
 rm ~/bin/csg.sh
 ln -s ~/.vim/others/csg.sh ~/bin/csg.sh
 
-rm ~/bin/csk.sh
-ln -s ~/.vim/others/csk.sh ~/bin/csk.sh
+rm ~/bin/csm.sh
+ln -s ~/.vim/others/csm.sh ~/bin/csm.sh
 
 echo "update submodules"
 git submodule init
