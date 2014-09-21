@@ -23,6 +23,7 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 alias ll='ls -alhF'
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias cdk='cd /lib/modules/`uname -r`/build'
+alias fgrep='find . | xargs grep 2>/dev/null '
 
 if [ -d ~/bin ];then
     export PATH=$PATH:~/bin
