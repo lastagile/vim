@@ -43,8 +43,11 @@ ln -s ~/.vim/others/csg.sh ~/bin/csg.sh
 rm ~/bin/csm.sh
 ln -s ~/.vim/others/csm.sh ~/bin/csm.sh
 
+git remote set-url origin git@github.com:lastagile/vim.git
+
 echo "update submodules"
 git submodule init
 git submodule update
 
 git submodule foreach git pull origin master
+
