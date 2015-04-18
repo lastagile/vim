@@ -3,244 +3,158 @@ map <ScrollWheelDown> <C-E>
 set ttymouse=xterm2
 set ttyfast
 
-" 不要使用vi的键盘模式，而是vim自己的
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+set ttymouse=xterm2
+"set ttyfast
+ 
 set nocompatible
-
-" 启动的时候不显示那个援助索马里儿童的提示
-set shortmess=atI       
-
-" history文件中需要记录的行数
+ 
+" history file size
 set history=1000
-
-" 在处理未保存或只读文件的时候，弹出确认
+ 
+" Confirm when read only
 set confirm
-
-"==========================================
-" file encode, 文件编码,格式
-"==========================================
-" 设置新文件的编码为 UTF-8
-"set fileencodings=ucs-bom,utf-8,gb2312,big5,latin1
-
-set encoding=utf-8
-" 自动判断编码时，依次尝试以下编码：
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set helplang=cn
-"language message zh_CN.UTF-8
-"set langmenu=zh_CN.UTF-8
-"set enc=2byte-gb18030
-" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
-set termencoding=utf-8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-" 如遇Unicode值大于255的文本，不必等到空格再折行。
-set formatoptions+=m
-" 合并两行中文时，不在中间加空格：
-set formatoptions+=B
-
-
-" 与windows共享剪贴板
-"set clipboard+=unnamed
-
-" 侦测文件类型
+ 
+" file setting
 filetype on
-
-" 载入文件类型插件
 filetype plugin on
-
-" 为特定文件类型载入相关缩进文件
 filetype indent on
-
-"启动自动补全
 filetype plugin indent on
-
-" 保存全局变量
-set viminfo+=!
-
-" 带有如下符号的单词不要被换行分割
-set iskeyword+=_,$,@,%,#,-
-
-" 语法高亮
+ 
+" Set keyword
+" set iskeyword+=_,$,@,%,#,-
+ 
+" Highlight syntax
 syntax on
-
-" 高亮字符，让其不受100列限制
+set t_Co=256
+set background=dark
+"colorscheme solarized
+ 
+ 
 :highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
-:match OverLength '\%101v.*'
-
-" 状态行颜色
+:match OverLength '\%1001v.*'
+ 
+" Highlight status colour
 highlight StatusLine guifg=SlateBlue guibg=Yellow
 highlight StatusLineNC guifg=Gray guibg=White
-
-
+ 
+ 
 "" Display
 set number        "" show line number
 set ruler         "" always show current position
-set cursorline    "" highlight the current line
-
+ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 文件设置
+" File
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 不要备份文件（根据自己需要取舍）
+" No backup
 set nobackup
-
-" 不要生成swap文件，当buffer被丢弃的时候隐藏它
+ 
+" no swap
 setlocal noswapfile
 set bufhidden=hide
-
-" 字符间插入的像素行数目
-set linespace=0
-
-" 增强模式中的命令行自动完成操作
-set wildmenu
-
-" 命令行（在状态行下）的高度，默认为1，这里是2
-set cmdheight=1
-
-" 使回格键（backspace）正常处理indent, eol, start等
-set backspace=2
-
-" 允许backspace和光标键跨越行边界
-set whichwrap+=<,>,h,l
-
-" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+ 
+"set wildmenu
+ 
+set cmdheight=2
+ 
+"set backspace=2
+ 
+"set whichwrap+=<,>,h,l
+ 
+" mounse setting
 set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
-
-"打开时回到上一次位置
+ 
+" Open file to where last time edit
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $ " |endif|endif
 " for simplicity, "  au BufReadPost * exe "normal! g`\"", is Okay.
 endif
-
-" 通过使用: commands命令，告诉我们文件的哪一行被改变过
-set report=0
-
-" 不让vim发出讨厌的滴滴声
+ 
+ 
+"set report=0
+ 
+" no bell
 set noerrorbells
-
-" 在被分割的窗口间显示空白，便于阅读
-"set fillchars=vert:\ ,stl:\ ,stlnc:\
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 搜索和匹配
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 高亮显示匹配的括号
-set showmatch
-
-" 匹配括号高亮的时间（单位是十分之一秒）
-set matchtime=5
-
-" 在搜索的时候忽略大小写
-set ignorecase
-
-" 设置自动补全的色
-hi Pmenu ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff 
-
-" 高亮被搜索的句子（phrases）
-set hlsearch
-
-" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
-set incsearch
-
-" 输入:set list命令是应该显示些啥？
-" set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
-
-" 光标移动到buffer的顶部和底部时保持3行距离
-set scrolloff=3
-
-" 不要闪烁
 set novisualbell
-
-" 我的状态行显示的内容（包括文件类型和解码）
+ 
+" Blank between window
+" set fillchars=vert:\ ,stl:\ ,stlnc:\
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight matched
+set showmatch
+ 
+"
+set matchtime=5
+ 
+set ignorecase
+set smartcase
+ 
+" color
+hi Pmenu ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
+ 
+set hlsearch
+ 
+" search when input
+set incsearch
+ 
+" 3 lines from end of screen
+set scrolloff=3
+ 
+ 
+ 
+" Show cmd
 set showcmd
 " Show current mode
 set showmode
-" 总是显示状态行
+" Show status always
 set laststatus=2
-
+ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 文本格式和排版
+" File type
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自动格式化
+" auto formate
 set formatoptions=tcrqn
-
-" 继承前一行的缩进方式，特别适用于多行注释
 set autoindent
-
-" 为C程序提供自动缩进
 set smartindent
-
-" 使用C样式的缩进
+ 
+" C style indent
 set cindent
-
-" 制表符为4
-set tabstop=4
-
-" 统一缩进为4
-set softtabstop=4
-set shiftwidth=4
-
-" 不要用空格代替制表符
+ 
+" tab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+ 
+" expend tab with white space
 set expandtab
-
-" 换行
+ 
+" show a line wraped
 set wrap
-
-" 按退格键时可以一次删掉 4 个空格
+ 
+" smart
 set smarttab
-
-" 用空格键来开关折叠
+" Very useful
+set wildmenu
+ 
+" Using space to fold code
 set foldenable
 set foldmethod=syntax
-set foldlevel=100
+set foldlevel=1
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-
-"行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
-set relativenumber
-au FocusLost * :set number
-au FocusGained * :set relativenumber
-" 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
-
-" """"""""""""""""""""""""""auto complete () "" """"""""""""""""""""""""""""""""""""""""
-":inoremap ( ()<ESC>i
-":inoremap ) <c-r>=ClosePair(')')<CR>
-":inoremap { {}<ESC>i
-":inoremap } <c-r>=ClosePair('}')<CR>
-":inoremap [ []<ESC>i
-":inoremap ] <c-r>=ClosePair(']')<CR>
-":inoremap < <><ESC>i
-":inoremap > <c-r>=ClosePair('>')<CR>
-"
-"function ClosePair(char)
-"    if getline('.')[col('.') - 1] == a:char
-"        return "\<Right>"
-"    else
-"        return a:char
-"    endif
-"endf
-
-let g:neocomplcache_enable_at_startup=1  
-" 自动补全配置
-"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-"set completeopt+=longest
-set completeopt=longest,menu
-
+ 
+let g:xml_syntax_folding = 1  " Enable xml fold function
+let perl_fold = 1             " Enable perl fold function
+ 
 " configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
+ 
 """"""""""""""""""""""""""""""""""""""""""""""Set mapleader """"""""""""""""""""""
 let mapleader = ","
 let g:mapleader = ","
@@ -249,46 +163,87 @@ nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
 nmap <leader>q :q<cr>
 nmap <leader>r :reg<cr>
-"去除搜索高亮"
+ 
+" remove highlight
 noremap <silent><leader>/ :nohls<CR>
-
+ 
+" =============================================================================
+" mappings
+" =============================================================================
+ 
 "Treat long lines as break lines (useful when moving around in them)
-"se swap之后，同物理行上线直接跳
 map j gj
 map k gk
-
-"Smart way to move between windows 分屏窗口移动
+ 
+"Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
+ 
 " Go to home and end using capitalized directions
 noremap H 0
 noremap L $
-
+ 
 " when in insert mode, press <F2> to go to
-set pastetoggle=<F5>            
-
-" disbale paste mode when leaving insert mode
-au InsertLeave * set nopaste
-
-"复制到行尾"
+set pastetoggle=<F5>           
+ 
+" Copy to end of line
 map Y y$
-
+ 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
-
-inoremap kj <Esc>
-
+ 
+" inoremap kj <Esc>
+ 
 "Use arrow key to change buffer"
 noremap <left> :bp<CR>
 noremap <right> :bn<CR>
-
+ 
 " T & t to open new line"
 nmap t o<ESC>k
 nmap T O<ESC>j
+ 
+" tab
+map <F7> <Esc>:tabprevious<CR>
+map <F8> <Esc>:tabnext<CR>
+map <F10> <Esc>:tabnew<CR>
+ 
+""""""""""""""""""""""""ctags & cscope""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Added the global ctags
+" Ctags {
+set tags=$PWD/cscope/tags;
+" kernal tags
+"set tags=$PWD/cscope/tags,/lib/modules/$UNAMER/build/tags,/usr/include/tags; 
+"}
+ 
+"set noautochdir
+if has("cscope")
+        " add any database in current directory
+       
+        set nocsverb
+        if filereadable("./cscope/cscope.out")
+            cs add ./cscope/cscope.out
+        elseif filereadable("cscope.out")
+                cs add cscope.out
+        endif
+        set csverb
+        set csto=0
+ 
+        "set cscope map
+        nmap <leader>sa :cs add cscope.out<cr>
+        nmap <leader>ss :cs find s <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>sg :cs find g <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>sc :cs find c <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>st :cs find t <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>se :cs find e <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<cr><cr>
+        nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
+        nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
+endif
+ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -322,7 +277,7 @@ let NERDTreeIgnore=[ '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', 
 let g:NERDTreeWinPos = "right"
 "}
 
-"###########显示增强#######################################################"
+"##################### enhance show###########################################"
 "vim-colores-solarized{
 syntax enable
 if has('gui_running')
@@ -337,10 +292,10 @@ colorscheme solarized
 execute pathogen#infect()
 "}
 
-"快速插入代码片段
+" input snippets
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
-"定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
+" dir .vim/snippets
 let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultisnips/UltiSnips"]
 
 "YCM
@@ -358,32 +313,3 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " let g:Powerline_symbols = 'unicode'
  "}
 
-"Added the kernel ctags
-" Ctags {
-set tags=$PWD/cscope/tags,/lib/modules/$UNAMER/build/tags,/usr/include/tags; 
-"}
-
-"set noautochdir
-if has("cscope")
-        " add any database in current directory
-        
-        set nocsverb
-        if filereadable("./cscope/cscope.out")
-            cs add ./cscope/cscope.out
-        elseif filereadable("cscope.out")
-                cs add cscope.out
-        endif
-        set csverb
-        set csto=0
- 
-        "set cscope map
-        nmap <leader>sa :cs add cscope.out<cr>
-        nmap <leader>ss :cs find s <C-R>=expand("<cword>")<cr><cr>
-        nmap <leader>sg :cs find g <C-R>=expand("<cword>")<cr><cr>
-        nmap <leader>sc :cs find c <C-R>=expand("<cword>")<cr><cr>
-        nmap <leader>st :cs find t <C-R>=expand("<cword>")<cr><cr>
-        nmap <leader>se :cs find e <C-R>=expand("<cword>")<cr><cr>
-        nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<cr><cr>
-        nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
-        nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
-endif
