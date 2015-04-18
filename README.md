@@ -21,9 +21,9 @@ Git Hub usage
     git submodule update
     git submodule foreach git pull origin master
     git submodule update --init --recursive
+[Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)<br/>
-[Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
 [Git submodule](http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating)<br/>
 
 Add git sub module
