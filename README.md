@@ -5,7 +5,15 @@ my vim configuration
 
 Git Hub usage
 ----------------------------------
-
+    get from github:
+    git clone https://github.com/lastagile/vim.git
+    git pull
+    echo "set up ssh key first. then update submodules"
+    git submodule init
+    git submodule update
+    git submodule foreach git pull origin master
+    git submodule update --init --recursive
+    
     update to github:
     git add <files>
     git rm <files>
@@ -13,17 +21,10 @@ Git Hub usage
     git commit -a -m "xxxxxx"
     git push
 
-    get from github:
-    git clone https://github.com/lastagile/vim.git
-    git pull
-    echo "update submodules"
-    git submodule init
-    git submodule update
-    git submodule foreach git pull origin master
-    git submodule update --init --recursive
+
+[Git SSH KEY setep 1 and setep 2](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
 [Git for Vim Refrence](https://github.com/andyque/dotvim)<br/>
 [Git visual guide](http://marklodato.github.io/visual-git-guide/index-en.html)<br/>
-[Git SSH KEY](http://blog.csdn.net/benw1988/article/details/8492968)<br/>
 [Git submodule](http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating)<br/>
 
 Add git sub module
@@ -52,7 +53,6 @@ Vim setting:
     H =0
     L =$
     w!!  以sudo的权限保存
-    kj   <Esc>，编辑时不用到角落去按esc了
     t    新起一行，下面，不进入插入模式
     T    新起一行，上面
     hjkl  上下左右
