@@ -75,8 +75,11 @@ Vim setting:
 
 Other settings
 ===================================
-Ubuntu vim
+Ubuntu
 ---------------------------------
+[ssh](http://blog.csdn.net/netwalk/article/details/12952051)<br/>
+[更新源](http://wiki.ubuntu.org.cn/%E6%BA%90%E5%88%97%E8%A1%A8)<br/>
+sudo apt-get install git
 ### VIM 安装相关软件包
     sudo apt-get install build-essential
     sudo apt-get install ncurses-dev
