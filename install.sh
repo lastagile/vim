@@ -6,28 +6,35 @@ echo "cd to .vim directory"
 cd ~/.vim
 
 echo "create .vimrc"
+
+mkdir ~/back
+
 if [ -f ~/.vimrc ]; then
-rm ~/.vimrc
+mv ~/.vimrc ~/back/.vimrc_`date +%Y%m%d_%s`
 fi
-
 ln -s ~/.vim/others/vimrc.local ~/.vimrc
-if [ -f ~/.grvimrc ]; then
-rm ~/.gvimrc
-fi
 
+if [ -f ~/.grvimrc ]; then
+mv ~/.gvimrc ~/.gvimrc_`date +%Y%m%d_%s`
+fi
 ln -s ~/.vim/others/vimrc.local ~/.gvimrc
 
 if [ -f ~/.screenrc ]; then
-    rm ~/.screenrc
+    mv ~/.screenrc ~/.screenrc_`date +%Y%m%d_%s`
 fi
 ln -s ~/.vim/others/screenrc ~/.screenrc
 
 if [ -f ~/.bash_aliases ]; then
-    rm ~/.bash_aliases
+    mv ~/.bash_aliases ~/.bash_aliases_`date +%Y%m%d_%s`
 fi
 ln -s ~/.vim/others/bash_aliases ~/.bash_aliases
 
-echo ". ~/.bash_aliases" >> ~/.bashrc
+if [ "`cat ~/.bashrc|grep -c bash_aliases`" != 0 ] ; 
+echo 'if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi' >> ~/.bashrc
+fi
+
 
 mkdir ~/bin
 rm ~/bin/csg.sh
