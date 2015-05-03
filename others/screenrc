@@ -12,6 +12,7 @@
 # screen -t monkey ssh monkey
 # screen -t mail 8 mutt
 # screen -t daemon 9 tail -f /var/log/daemon.log
+#
 hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.bW}%-w%{.rY}%n %t%{-}%+w %=%{..G} %H(%l) %{..Y} %Y/%m/%d %c:%s "
@@ -20,3 +21,8 @@ vbell off
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
 scrollback 2000
 
+# Arrow keys to switch terminals (only works with X) 
+# Alt + left 
+bindkey ^[b prev 
+# Alt + right 
+bindkey ^[f next

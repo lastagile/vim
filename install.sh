@@ -29,7 +29,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 ln -s ~/.vim/others/bash_aliases ~/.bash_aliases
 
-if [ "`cat ~/.bashrc|grep -c bash_aliases`" != 0 ] ; 
+if [ "`cat ~/.bashrc|grep -c bash_aliases`" != 0 ] ; then
 echo 'if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi' >> ~/.bashrc
