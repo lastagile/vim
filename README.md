@@ -1,7 +1,9 @@
 my vim configuration
 ===================================
 
-
+Cheat sheat
+----------------------------------
+[Cheat sheat](http://cenalulu.github.io/linux/all-vim-cheatsheat/)<br/>
 
 Git Hub usage
 ----------------------------------
