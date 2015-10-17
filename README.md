@@ -95,6 +95,7 @@ Colore Setting
 ---------------------------------------
 [Colore setting](http://ethanschoonover.com/solarized)<br/>
 [In ubuntu](http://www.lupaworld.com/article-210612-1.html)<br/>
+[OS X terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized/blob/master/Solarized%20Dark.terminal)
 
     git clone https://github.com/coolwanglu/gnome-terminal-colors-solarized.git
     cd gnome-terminal-colors-solarized/
