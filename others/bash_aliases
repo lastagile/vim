@@ -8,7 +8,7 @@ alias ......="cd ../../../../.."
 alias cdh="cd ~"
 alias d='dirs -v'
 #export CDPATH=~:/etc
-alias diff='colordiff'
+alias diff='colordiff '
 alias rm='rm -i'
 alias df='df -h'
 alias path='echo -e ${PATH//:/\\n}'
@@ -23,7 +23,7 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 alias ll='ls -alhF'
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias cdk='cd /lib/modules/`uname -r`/build'
-alias fgrep='find . | xargs grep 2>/dev/null '
+alias agrep='find . | xargs grep 2>/dev/null '
 
 if [ -d ~/bin ];then
     export PATH=$PATH:~/bin
@@ -34,6 +34,7 @@ export UNAMER=`uname -r`
 export CLICOLOR=1 
 
 set -o vi
+set editing-mode vi
 
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8

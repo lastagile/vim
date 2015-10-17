@@ -22,9 +22,6 @@
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline
-[submodule "bundle/bufkill"]
-	path = bundle/bufkill
-	url = git@github.com:oblitum/bufkill
 [submodule "bundle/vim-expand-region"]
 	path = bundle/vim-expand-region
 	url = git@github.com:terryma/vim-expand-region
