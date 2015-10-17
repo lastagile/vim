@@ -46,7 +46,7 @@ lnif $CURRENT_DIR/others/$VIMRC_FILE $HOME/.ideavimrc
 lnif $CURRENT_DIR/others/$BASH_ALIAS_FILE $HOME/.bash_aliases
 lnif $CURRENT_DIR $HOME/.vim
 
-if [ "`cat $HOME/.bashrc|grep -c bash_aliases`" != 0 ] ; then
+if [ "`cat $HOME/.bashrc|grep -c bash_aliases`" == 0 ] ; then
 echo 'if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
 fi' >> $HOME/.bashrc
@@ -66,12 +66,12 @@ if [ ! -e $CURRENT_DIR/bundle/vundle ]; then
     git clone https://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
 else
     echo "Upgrade Vundle"
-#    cd "$HOME/.vim/bundle/vundle" && git pull origin master
+    cd "$HOME/.vim/bundle/vundle" && git pull origin master
 fi
 
 echo "Step4: update/install plugins using Vundle"
 system_shell=$SHELL
 export SHELL="/bin/sh"
-#vim -u $HOME/.vimrc.bundles +BundleInstall! +BundleClean +qall
+vim -u $HOME/.vimrc.bundles +BundleInstall! +BundleClean +qall
 export SHELL=$system_shell
 
