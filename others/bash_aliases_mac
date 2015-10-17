@@ -1,0 +1,39 @@
+#!bash : executed by bash(1) for non-login shells.
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias cdh="cd ~"
+alias d='dirs -v'
+#export CDPATH=~:/etc
+#alias diff='colordiff '
+alias rm='rm -i'
+alias df='df -h'
+alias path='echo -e ${PATH//:/\\n}'
+alias h='history'
+alias j='jobs -l'
+alias ping='ping -c 5'
+alias ports='netstat -tulanp'
+#alias apt-get="sudo apt-get"
+#alias updatey="sudo apt-get --yes"
+
+# update on one command 
+#alias update='sudo apt-get update && sudo apt-get upgrade'
+alias ll='ls -alhF'
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+alias agrep='find . | xargs grep 2>/dev/null '
+
+if [ -d ~/bin ];then
+    export PATH=$PATH:~/bin
+fi
+
+export CLICOLOR=1 
+
+set -o vi
+set editing-mode vi
+
+# Setting for the new UTF-8 terminal support in Lion
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

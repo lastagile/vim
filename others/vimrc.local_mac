@@ -1,0 +1,315 @@
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+set ttymouse=xterm2
+set ttyfast
+
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+set ttymouse=xterm2
+"set ttyfast
+ 
+set nocompatible
+ 
+" history file size
+set history=1000
+ 
+" Confirm when read only
+set confirm
+ 
+" file setting
+filetype on
+filetype plugin on
+filetype indent on
+filetype plugin indent on
+ 
+" Set keyword
+" set iskeyword+=_,$,@,%,#,-
+ 
+" Highlight syntax
+syntax on
+set t_Co=256
+set background=dark
+"colorscheme solarized
+ 
+ 
+:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
+:match OverLength '\%1001v.*'
+ 
+" Highlight status colour
+highlight StatusLine guifg=SlateBlue guibg=Yellow
+highlight StatusLineNC guifg=Gray guibg=White
+ 
+ 
+"" Display
+set number        "" show line number
+set ruler         "" always show current position
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" No backup
+set nobackup
+ 
+" no swap
+setlocal noswapfile
+set bufhidden=hide
+ 
+"set wildmenu
+ 
+set cmdheight=2
+ 
+"set backspace=2
+ 
+"set whichwrap+=<,>,h,l
+ 
+" mounse setting
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+ 
+" Open file to where last time edit
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $ " |endif|endif
+" for simplicity, "  au BufReadPost * exe "normal! g`\"", is Okay.
+endif
+ 
+ 
+"set report=0
+ 
+" no bell
+set noerrorbells
+set novisualbell
+ 
+" Blank between window
+" set fillchars=vert:\ ,stl:\ ,stlnc:\
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight matched
+set showmatch
+ 
+"
+set matchtime=5
+ 
+set ignorecase
+set smartcase
+ 
+" color
+hi Pmenu ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
+ 
+set hlsearch
+ 
+" search when input
+set incsearch
+ 
+" 3 lines from end of screen
+set scrolloff=3
+ 
+ 
+ 
+" Show cmd
+set showcmd
+" Show current mode
+set showmode
+" Show status always
+set laststatus=2
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File type
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" auto formate
+set formatoptions=tcrqn
+set autoindent
+set smartindent
+ 
+" C style indent
+set cindent
+ 
+" tab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+ 
+" expend tab with white space
+set expandtab
+ 
+" show a line wraped
+set wrap
+ 
+" smart
+set smarttab
+" Very useful
+set wildmenu
+ 
+" Using space to fold code
+set foldenable
+set foldmethod=syntax
+set foldlevel=1
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+ 
+let g:xml_syntax_folding = 1  " Enable xml fold function
+let perl_fold = 1             " Enable perl fold function
+ 
+" configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+ 
+""""""""""""""""""""""""""""""""""""""""""""""Set mapleader """"""""""""""""""""""
+let mapleader = ","
+let g:mapleader = ","
+"Fast saving
+nmap <leader>w :w!<cr>
+nmap <leader>f :find<cr>
+nmap <leader>q :q<cr>
+nmap <leader>r :reg<cr>
+ 
+" remove highlight
+noremap <silent><leader>/ :nohls<CR>
+ 
+" =============================================================================
+" mappings
+" =============================================================================
+ 
+"Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+ 
+"Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+ 
+" Go to home and end using capitalized directions
+noremap H 0
+noremap L $
+ 
+" when in insert mode, press <F2> to go to
+set pastetoggle=<F5>           
+ 
+" Copy to end of line
+map Y y$
+ 
+" w!! to sudo & write a file
+cmap w!! w !sudo tee >/dev/null %
+ 
+" inoremap kj <Esc>
+ 
+"Use arrow key to change buffer"
+noremap <left> :bp<CR>
+noremap <right> :bn<CR>
+ 
+" T & t to open new line"
+nmap t o<ESC>k
+nmap T O<ESC>j
+ 
+" tab
+map <F7> <Esc>:tabprevious<CR>
+map <F8> <Esc>:tabnext<CR>
+map <F10> <Esc>:tabnew<CR>
+ 
+""""""""""""""""""""""""ctags & cscope""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Added the global ctags
+" Ctags {
+set tags=$PWD/cscope/tags;
+" kernal tags
+"set tags=$PWD/cscope/tags,/lib/modules/$UNAMER/build/tags,/usr/include/tags; 
+"}
+ 
+"set noautochdir
+if has("cscope")
+        " add any database in current directory
+       
+        set nocsverb
+        if filereadable("./cscope/cscope.out")
+            cs add ./cscope/cscope.out
+        elseif filereadable("cscope.out")
+                cs add cscope.out
+        endif
+        set csverb
+        set csto=0
+ 
+        "set cscope map
+        nmap <leader>sa :cs add cscope.out<cr>
+        nmap <leader>ss :cs find s <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>sg :cs find g <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>sc :cs find c <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>st :cs find t <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>se :cs find e <C-R>=expand("<cword>")<cr><cr>
+        nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<cr><cr>
+        nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
+        nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
+endif
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" runtime path manipulation before all the plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+execute pathogen#infect()
+
+" delimitmate
+    let delimitMate_expand_cr = 1
+"
+
+" Tagbar {
+nmap <F8> :TagbarToggle<CR>
+highlight TagbarHighligh guifg=Green ctermfg=Green
+let g:tagbar_left = 1
+let g:tagbar_width = 30
+let g:tagbar_updateonsave_maxlines = 1
+let g:tagbar_compact = 1 "去除帮助提示"
+"}
+
+
+"NERDTree{
+map <leader>n :NERDTreeToggle<CR>
+"if no no files were specified open a NERDTree 
+autocmd vimenter * if !argc() | NERDTree | endif
+"open a NERDTree automatically when vim starts up
+"autocmd vimenter * NERDTree
+let NERDTreeIgnore=[ '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+let g:NERDTreeWinPos = "right"
+"}
+
+"##################### enhance show###########################################"
+"vim-colores-solarized{
+syntax enable
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+"}
+
+"syntastic{
+execute pathogen#infect()
+"}
+
+" input snippets
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" dir .vim/snippets
+let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultisnips/UltiSnips"]
+
+"YCM
+let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"powerline{
+ set guifont=PowerlineSymbols\ for\ Powerline
+ set nocompatible
+ set t_Co=256
+" let g:Powerline_symbols = 'unicode'
+ "}
+
