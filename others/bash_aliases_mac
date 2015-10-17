@@ -8,7 +8,6 @@ alias ......="cd ../../../../.."
 alias cdh="cd ~"
 alias d='dirs -v'
 #export CDPATH=~:/etc
-#alias diff='colordiff '
 alias rm='rm -i'
 alias df='df -h'
 alias path='echo -e ${PATH//:/\\n}'
@@ -16,14 +15,11 @@ alias h='history'
 alias j='jobs -l'
 alias ping='ping -c 5'
 alias ports='netstat -tulanp'
-#alias apt-get="sudo apt-get"
-#alias updatey="sudo apt-get --yes"
 
-# update on one command 
-#alias update='sudo apt-get update && sudo apt-get upgrade'
 alias ll='ls -alhF'
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias agrep='find . | xargs grep 2>/dev/null '
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl '
 
 if [ -d ~/bin ];then
     export PATH=$PATH:~/bin

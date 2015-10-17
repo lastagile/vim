@@ -1,3 +1,14 @@
+let mapleader = ','
+let g:mapleader = ','
+
+syntax on
+
+" install Vundle bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 set ttymouse=xterm2
@@ -26,11 +37,13 @@ filetype plugin indent on
 " set iskeyword+=_,$,@,%,#,-
  
 " Highlight syntax
-syntax on
 set t_Co=256
-set background=dark
-"colorscheme solarized
- 
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+colorscheme solarized
  
 :highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
 :match OverLength '\%1001v.*'
@@ -156,8 +169,6 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
  
 """"""""""""""""""""""""""""""""""""""""""""""Set mapleader """"""""""""""""""""""
-let mapleader = ","
-let g:mapleader = ","
 "Fast saving
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
@@ -243,73 +254,12 @@ if has("cscope")
         nmap <leader>si :cs find i <C-R>=expand("<cfile>")<cr><cr>
         nmap <leader>sd :cs find d <C-R>=expand("<cword>")<cr><cr>
 endif
- 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" runtime path manipulation before all the plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
-
-" delimitmate
-    let delimitMate_expand_cr = 1
-"
-
-" Tagbar {
-nmap <F8> :TagbarToggle<CR>
-highlight TagbarHighligh guifg=Green ctermfg=Green
-let g:tagbar_left = 1
-let g:tagbar_width = 30
-let g:tagbar_updateonsave_maxlines = 1
-let g:tagbar_compact = 1 "去除帮助提示"
-"}
-
-
-"NERDTree{
-map <leader>n :NERDTreeToggle<CR>
-"if no no files were specified open a NERDTree 
-autocmd vimenter * if !argc() | NERDTree | endif
-"open a NERDTree automatically when vim starts up
-"autocmd vimenter * NERDTree
-let NERDTreeIgnore=[ '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
-let g:NERDTreeWinPos = "right"
-"}
-
-"##################### enhance show###########################################"
-"vim-colores-solarized{
-syntax enable
-if has('gui_running')
-    set background=light
-else
-    set background=dark
+" set some keyword to highlight
+if has("autocmd")
+  " Highlight TODO, FIXME, NOTE, etc.
+  if v:version > 701
+    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
+    autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
+  endif
 endif
-colorscheme solarized
-"}
-
-"syntastic{
-execute pathogen#infect()
-"}
-
-" input snippets
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" dir .vim/snippets
-let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultisnips/UltiSnips"]
-
-"YCM
-let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" powerline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"powerline{
- set guifont=PowerlineSymbols\ for\ Powerline
- set nocompatible
- set t_Co=256
-" let g:Powerline_symbols = 'unicode'
- "}
-
