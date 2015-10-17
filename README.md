@@ -11,10 +11,10 @@ Git Hub usage
     git clone https://github.com/lastagile/vim.git
     git pull
     echo "set up ssh key first. then update submodules"
-    git submodule init
-    git submodule update
-    git submodule foreach git pull origin master
-    git submodule update --init --recursive
+    # git submodule init
+    # git submodule update
+    # git submodule foreach git pull origin master
+    # git submodule update --init --recursive
     
     update to github:
     git add <files>
