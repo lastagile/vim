@@ -13,11 +13,6 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 set ttymouse=xterm2
 set ttyfast
-
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
-set ttymouse=xterm2
-"set ttyfast
  
 set nocompatible
  
@@ -76,7 +71,8 @@ set cmdheight=2
 "set whichwrap+=<,>,h,l
  
 " mounse setting
-set mouse=a
+"set mouse=a
+set mouse=v
 set selection=exclusive
 set selectmode=mouse,key
  
