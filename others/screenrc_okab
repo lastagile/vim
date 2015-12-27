@@ -27,3 +27,17 @@ bindkey ^[b prev
 # Alt + right 
 bindkey ^[f next
 
+chdir $HOME/code/okab
+
+screen    -t server        1 
+screen    -t historicaldata        2 
+screen    -t marketdata     3 
+screen    -t ordermanager            4 
+screen    -t trader            5 
+
+#screen    -t server        1 $HOME/code/okab/virtualenv/bin/okab-server
+#screen    -t historicaldata        2 $HOME/code/okab/virtualenv/bin/okab-historicaldata
+#screen    -t marketdata     3 $HOME/code/okab/virtualenv/bin/okab-marketdata
+#screen    -t ordermanager            4 $HOME/code/okab/virtualenv/bin/okab-ordermanager
+#screen    -t trader            5 $HOME/code/okab/virtualenv/bin/okab-trader 
+

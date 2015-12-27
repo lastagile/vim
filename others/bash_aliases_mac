@@ -33,6 +33,16 @@ set editing-mode vi
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+alias newvp='virtualenv ./virtualenv --python=$(which python3) && . virtualenv/bin/activate '
+alias vp='. virtualenv/bin/activate '
 
-alias virtualpython='virtualenv ./virtualenv --python=$(which python3) && . virtualenv/bin/activate '
+# Screen set up start
+alias screendemon='SCREENFLAG=DEMON screen -d -R -S demon -c $HOME/vim/others/screenrc_demon'
+alias screenokab='SCREENFLAG=OKAB screen -d -R -S OKAB -c $HOME/vim/others/screenrc_okab'
 
+if [[ $SCREENFLAG == "OKAB" ]]
+then
+  . $HOME/code/okab/virtualenv/bin/activate
+fi
+
+# Screen set up end
