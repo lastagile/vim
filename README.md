@@ -8,7 +8,7 @@ Cheat sheat
 Git Hub usage
 ----------------------------------
     get from github:
-    git clone https://github.com/lastagile/vim.git
+    git clone git@github.com:lastagile/vim.git
     git pull
     echo "set up ssh key first. then update submodules"
     # git submodule init
