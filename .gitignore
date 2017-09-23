@@ -5,4 +5,3 @@ build
 *.xcodeproj/*.tm_build_errors
 *.tmproj
 .DS_Store
-bundle
