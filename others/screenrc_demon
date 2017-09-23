@@ -27,8 +27,8 @@ bindkey ^[b prev
 # Alt + right 
 bindkey ^[f next
 
-chdir $HOME/ReportMining/code/html
-screen    -t stock        1  $HOME/ReportMining/code/html/run.sh
+#chdir $HOME/ReportMining/code/html
+#screen    -t stock        1  $HOME/ReportMining/code/html/run.sh
 chdir /Users/sam/code/okab
 screen    -t redis        2 redis-server
 screen    -t updateIp     3 $HOME/code/okab/updateIp.sh

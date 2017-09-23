@@ -37,12 +37,13 @@ alias newvp='virtualenv ./virtualenv --python=$(which python3) && . virtualenv/b
 alias vp='. virtualenv/bin/activate '
 
 # Screen set up start
-alias screendemon='SCREENFLAG=DEMON screen -d -R -S demon -c $HOME/vim/others/screenrc_demon'
-alias screenokab='SCREENFLAG=OKAB screen -d -R -S OKAB -c $HOME/vim/others/screenrc_okab'
+alias screendemon='SCREENFLAG=DEMON screen -d -R -S demon -c $HOME/vim/others/screenrc_demon -h 5000'
+alias screenokab='SCREENFLAG=OKAB screen -d -R -S OKAB -c $HOME/vim/others/screenrc_okab -h 5000'
+
+alias screen='screen -h 5000'
 
 if [[ $SCREENFLAG == "OKAB" ]]
 then
   . $HOME/code/okab/virtualenv/bin/activate
 fi
 
-# Screen set up end

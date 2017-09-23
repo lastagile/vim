@@ -29,11 +29,14 @@ bindkey ^[f next
 
 chdir $HOME/code/okab
 
+chdir /Users/sam/code/okab
+screen    -t redis        0 redis-server
 screen    -t server        1 
 screen    -t historicaldata        2 
 screen    -t marketdata     3 
 screen    -t ordermanager            4 
 screen    -t trader            5 
+screen    -t notify            6 
 
 #screen    -t server        1 $HOME/code/okab/virtualenv/bin/okab-server
 #screen    -t historicaldata        2 $HOME/code/okab/virtualenv/bin/okab-historicaldata

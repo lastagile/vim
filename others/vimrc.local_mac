@@ -155,7 +155,7 @@ set wildmenu
 set foldenable
 set foldmethod=syntax
 set foldlevel=1
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+" nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
  
 let g:xml_syntax_folding = 1  " Enable xml fold function
 let perl_fold = 1             " Enable perl fold function
