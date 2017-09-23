@@ -1,3 +1,4 @@
+execute pathogen#infect()
 let mapleader = ','
 let g:mapleader = ','
 
@@ -32,6 +33,7 @@ filetype plugin indent on
 " set iskeyword+=_,$,@,%,#,-
  
 " Highlight syntax
+syntax enable
 set t_Co=256
 if has('gui_running')
   set background=light
