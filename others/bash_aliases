@@ -36,6 +36,10 @@ export CLICOLOR=1
 set -o vi
 set editing-mode vi
 
+# Screen set up start
+alias screendemon='SCREENFLAG=DEMON screen -d -R -S demon -c $HOME/vim/others/screenrc_demon -h 5000'
+alias screenokab='SCREENFLAG=OKAB screen -d -R -S OKAB -c $HOME/vim/others/screenrc_okab -h 5000'
+
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
